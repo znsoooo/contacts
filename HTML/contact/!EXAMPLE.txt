@@ -1,0 +1,8 @@
+[EXAMPLE]
+李世先,公司,职务,手机号,邮箱
+马化腾,腾讯,产品经理,131XXXXXXXX,10001@qq.com
+马云,阿里巴巴,市场销售,132XXXXXXXX,jack@aliyun.com
+李彦宏,百度,程序员,133XXXXXXXX,robin@baidu.com
+Q太郎,
+...
+

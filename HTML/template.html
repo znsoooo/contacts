@@ -1,0 +1,70 @@
+﻿<html>
+<meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+<title>HTML所网通讯录v1.00</title>
+</head>
+<body>
+
+<script script type="text/javascript">
+	function init(){
+		var data = document.getElementById("contact").innerHTML.split("\n");
+		document.getElementById("contact").innerHTML = data.slice(0,7).join("<br>");
+		var ss = [];
+		for(i=8;i<data.length;i++){ // i=9:使用说明和检索列表分离，且只有首次
+			line = data[i].split(";");
+			ss.push([line[0], data[i]]);
+		}
+		return ss;
+	}
+	function search(){
+		var keys = document.getElementById("keys").value.toLowerCase().split(" ");
+		var result = "查找结果：<br><hr>"+findName(ss, keys).join("<br><hr>")+"<br><hr>"; // <br>为匹配手机浏览器扩选功能
+		document.getElementById("contact").innerHTML = result;
+	}
+	function findName(ss, keys){
+		var ss_new = [];
+		for(i=0;i<ss.length;i++){
+			if(ss_new.length == 100)
+				break;
+			var s = ss[i];
+			var ok = 1;
+			for(j=0;j<keys.length;j++){
+				var key = keys[j];
+				if (s[1].indexOf(key) == -1){
+					ok = 0
+				}
+			}
+			if (ok){
+				ss_new.push(s[0])
+			}
+		}
+		if(ss_new.length == 0){
+			ss_new.push("未找到匹配的结果。")
+		}
+		return ss_new;
+	}
+</script>
+
+<input id="keys" type="text" placeholder="输入拼音或关键词" onkeyup="search()" style="width:100%; height:40px;">
+
+<p hidden id='contact' style="word-break:break-all">使用说明：
+
+1. 输入汉字、拼音、拼音字头后返回通讯录检索结果，多个关键词用空格隔开；
+2. 不支持多音字、不支持拼音字头和拼音混输，混输关键词用空格隔开；
+3. 联系作者：QQ11313213
+
+...
+
+李世先,公司,职务,手机号,邮箱;lishixian,gongsi,zhiwu,shoujihao,youxiang,lsx,gs,zw,sjh,yx
+马化腾,腾讯,产品经理,131XXXXXXXX,10001@qq.com;mahuateng,tengxun,chanpinjingli,131xxxxxxxx,10001@qq.com,mht,tx,cpjl,131xxxxxxxx,10001@qq.com
+马云,阿里巴巴,市场销售,132XXXXXXXX,jack@aliyun.com;mayun,alibaba,shichangxiaoshou,132xxxxxxxx,jack@aliyun.com,my,albb,scxs,132xxxxxxxx,jack@aliyun.com
+李彦宏,百度,程序员,133XXXXXXXX,robin@baidu.com;liyanhong,baidu,chengxuyuan,133xxxxxxxx,robin@baidu.com,lyh,bd,cxy,133xxxxxxxx,robin@baidu.com
+Q太郎,;qtailang,,qtl,
+</p>
+
+<script script type="text/javascript">
+	var ss = init()
+	document.getElementById("contact").removeAttribute("hidden");
+</script>
+</body>
+</html>
