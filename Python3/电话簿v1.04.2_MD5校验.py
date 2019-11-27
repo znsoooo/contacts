@@ -1,11 +1,3 @@
-# TODO
-# 表格显示
-# 双击复制
-# 气泡提示来源
-# 双击打开引用文件
-# 滑块
-# 状态栏/菜单栏/标题行/气泡/右键菜单
-
 import os
 import time
 import hashlib
