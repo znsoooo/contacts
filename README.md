@@ -1,2 +1,2 @@
 # ContactBook
-ContactBook on Python3, Phone's Web browser, or mini program on Wechat.
+ContactBook on Python3, Web browser, or Mini Program on Wechat.
