@@ -1,0 +1,29 @@
+<view class="page-body">
+
+  <view class="page-section">
+    <view class="weui-cells__title">关键词：</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <input class="weui-input" bindinput="bindKeyInput" bindfocus="bindKeyInput" auto-focus placeholder="输入拼音或关键词"/>
+      </view>
+    </view>
+  </view>
+  <view class="divLine"></view>
+  <view class="divLine"></view>
+  <view class="divLine"></view>
+
+  <view class="page-section">
+    <view class="weui-cells__title">查询结果：{{inputValue}}</view>
+  </view>
+
+
+
+</view> 
+
+
+<radio-group class="radio-group">
+  <text class="radio" wx:for-items="{{items}}" selectable="true">{{item}}
+  </text>
+  <!--input class="radio" wx:for-items="{{items}}" value="{{item}}" disabled='true'> // 单行输入框文本
+  </input-->
+</radio-group>
